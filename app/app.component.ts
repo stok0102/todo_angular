@@ -19,10 +19,10 @@ export class AppComponent {
   public tasks: Task[];
   constructor(){
     this.tasks = [
-       new Task("Create To-Do List app.", "High", 0),
-       new Task("Learn Kung Fu.", "High", 1),
-       new Task("Rewatch all the Lord of the Rings movies.", "Low", 2),
-       new Task("Do the laundry.", "High", 3)
+       new Task("Create To-Do List app.", "High", "Work", 0),
+       new Task("Learn Kung Fu.", "High", "Hobby", 1),
+       new Task("Rewatch all the Lord of the Rings movies.", "Low", "Hobby", 2),
+       new Task("Do the laundry.", "High", "Home", 3)
     ];
   }
   taskWasSelected(clickedTask: Task): void {
