@@ -14,9 +14,9 @@ import {PriorityPipe} from './priority.pipe';
   directives: [TaskComponent, EditTaskDetailsComponent, NewTaskComponent],
   template: `
   <select #doneFilter class="filter">
-    <option value="all">Show All</option>
     <option value="done">Show Done</option>
     <option value="notDone" selected="selected">Show Not Done</option>
+    <option value="all">Show Both</option>
   </select>
   <select #priorityFilter>
       <option value="High">High</option>
