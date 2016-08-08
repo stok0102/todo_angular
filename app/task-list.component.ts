@@ -3,7 +3,7 @@ import { TaskComponent } from './task.component';
 import { Task } from './task.model';
 import { EditTaskDetailsComponent } from './edit-task-details.component';
 import { NewTaskComponent } from './new-task.component';
-import { DonePipe } from './done.pipe';
+import {DonePipe} from './done.pipe';
 
 @Component({
   selector: 'task-list',
@@ -12,7 +12,7 @@ import { DonePipe } from './done.pipe';
   pipes: [DonePipe],
   directives: [TaskComponent, EditTaskDetailsComponent, NewTaskComponent],
   template: `
-  <select (change)="onChange($event.target.value)">
+  <select (change)="onChange($event.target.value)" class="filter">
     <option value="all">Show All</option>
     <option value="done">Show Done</option>
     <option value="notDone" selected="selected">Show Not Done</option>
@@ -22,7 +22,8 @@ import { DonePipe } from './done.pipe';
     [class.selected]="currentTask === selectedTask"
     [task]="currentTask">
   </task-display>
-  <edit-task-details *ngIf="selectedTask" [task]="selectedTask"></edit-task-details>
+  <edit-task-details *ngIf="selectedTask" [task]="selectedTask">
+  </edit-task-details>
   <new-task (onSubmitNewTask)="createTask($event)"></new-task>
   `
 })
@@ -35,7 +36,6 @@ export class TaskListComponent {
     this.onTaskSelect = new EventEmitter();
   }
   taskClicked(clickedTask: Task): void {
-    console.log('child', clickedTask);
     this.selectedTask = clickedTask;
     this.onTaskSelect.emit(clickedTask);
   }
